@@ -20,8 +20,29 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        /* Animación para el fondo degradado de la sección Hero */
+        .hero-bg {
+            background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa2e5, #7da9e9, #74b0ed, #61b3f0, #50b6f1, #45b9f1, #45bbf0);
+            animation: gradient-animation 10s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Estilo para las tarjetas de productos */
+        .product-card {
+            transition: all 0.3s ease-in-out;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -53,24 +74,18 @@
     </header>
 
     <main>
-        <!-- Sección Hero -->
-        <section class="relative bg-white pt-16 pb-20 overflow-hidden rounded-b-3xl shadow-lg">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
-                <div class="md:w-1/2 text-center md:text-left">
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-                        Innovación Textil que Toca el Futuro
-                    </h2>
-                    <p class="text-lg md:text-xl text-gray-600 mb-8">
-                        Descubre nuestra nueva colección de "Algodón Orgánico Cuántico", donde la sostenibilidad se encuentra con la tecnología para crear una experiencia única.
-                    </p>
-                    <a href="#productos" class="btn-primary text-white font-semibold py-3 px-8 rounded-full inline-block">
-                        Explorar Colección
-                    </a>
-                </div>
-                <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center md:justify-end">
-                    <!-- Imagen de cabecera -->
-                    <img src="./images/hero-cabecera.png"
-                </div>
+        <!-- Sección Hero con fondo animado -->
+        <section class="relative hero-bg pt-16 pb-20 overflow-hidden rounded-b-3xl shadow-lg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4 drop-shadow-md">
+                    Innovación Textil que Toca el Futuro
+                </h2>
+                <p class="text-lg md:text-xl text-white mb-8 opacity-90 drop-shadow-sm">
+                    Descubre nuestra nueva colección de "Algodón Orgánico Cuántico", donde la sostenibilidad se encuentra con la tecnología para crear una experiencia única.
+                </p>
+                <a href="#productos" class="btn-primary text-white font-semibold py-3 px-8 rounded-full inline-block">
+                    Explorar Colección
+                </a>
             </div>
         </section>
 
@@ -113,32 +128,22 @@
                 <h3 class="text-3xl font-bold text-center text-gray-900 mb-12">Nuestra Colección</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Tarjeta de Producto - Algodón Premium -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                        <img src="./images/algodon-premium.png"
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-gray-900">Tejido de Algodón Premium</h4>
-                            <p class="text-gray-600 mt-2">Un tejido suave y resistente, ideal para la confección de prendas de alta calidad.</p>
-                            <a href="#" class="mt-4 inline-block text-[#8A2BE2] font-medium hover:underline">Ver detalles &rarr;</a>
-                        </div>
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform product-card p-6">
+                        <h4 class="text-lg font-semibold text-gray-900">Tejido de Algodón Premium</h4>
+                        <p class="text-gray-600 mt-2">Un tejido suave y resistente, ideal para la confección de prendas de alta calidad.</p>
+                        <a href="#" class="mt-4 inline-block text-[#8A2BE2] font-medium hover:underline">Ver detalles &rarr;</a>
                     </div>
                     <!-- Tarjeta de Producto - Mezcla de Lino y Algodón -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                        <img src="./images/lino.png"
-
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-gray-900">Mezcla de Lino y Algodón</h4>
-                            <p class="text-gray-600 mt-2">Perfecto para prendas de verano, fresco y con una caída elegante. Disponible en varios colores.</p>
-                            <a href="#" class="mt-4 inline-block text-[#8A2BE2] font-medium hover:underline">Ver detalles &rarr;</a>
-                        </div>
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform product-card p-6">
+                        <h4 class="text-lg font-semibold text-gray-900">Mezcla de Lino y Algodón</h4>
+                        <p class="text-gray-600 mt-2">Perfecto para prendas de verano, fresco y con una caída elegante. Disponible en varios colores.</p>
+                        <a href="#" class="mt-4 inline-block text-[#8A2BE2] font-medium hover:underline">Ver detalles &rarr;</a>
                     </div>
                     <!-- Tarjeta de Producto - Seda Orgánica -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                        <img src="./images/seda-organica.png"
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-gray-900">Tela de Seda Orgánica</h4>
-                            <p class="text-gray-600 mt-2">Lujo y sostenibilidad en un solo tejido. Ideal para creaciones exclusivas y de alta costura.</p>
-                            <a href="#" class="mt-4 inline-block text-[#8A2BE2] font-medium hover:underline">Ver detalles &rarr;</a>
-                        </div>
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform product-card p-6">
+                        <h4 class="text-lg font-semibold text-gray-900">Tela de Seda Orgánica</h4>
+                        <p class="text-gray-600 mt-2">Lujo y sostenibilidad en un solo tejido. Ideal para creaciones exclusivas y de alta costura.</p>
+                        <a href="#" class="mt-4 inline-block text-[#8A2BE2] font-medium hover:underline">Ver detalles &rarr;</a>
                     </div>
                 </div>
             </div>
